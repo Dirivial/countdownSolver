@@ -27,7 +27,9 @@ public class GUI extends JFrame {
         this.result.setText(result);
     }
 
-
+    /**
+     * Initialize the graphical interface
+     */
     private void initialize() {
         JButton button = new JButton("New calculation");
         button.addActionListener(ae -> this.askForInput());
@@ -40,6 +42,9 @@ public class GUI extends JFrame {
         askForInput();
     }
 
+    /**
+     * Ask user for input (maths round)
+     */
     private void askForInput() {
 
         JPanel numbersPanel = new JPanel();
@@ -55,10 +60,12 @@ public class GUI extends JFrame {
             numbersPanel.add(inputs.get(i));
         }
 
+        // Special field for the target
         JTextField target = new JTextField(10);
         fullPanel.add(new JLabel("Target:"), BorderLayout.NORTH);
         fullPanel.add(target, BorderLayout.NORTH);
 
+        // Ask the user
         int result = JOptionPane.showConfirmDialog(null, fullPanel,
                 "Please Enter Target and Numbers", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
