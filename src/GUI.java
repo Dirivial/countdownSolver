@@ -48,19 +48,12 @@ public class GUI extends JFrame {
         fullPanel.setLayout(new BorderLayout());
         fullPanel.add(numbersPanel, BorderLayout.CENTER);
 
-        JTextField one = new JTextField(5);
-        JTextField two = new JTextField(5);
-        JTextField three = new JTextField(5);
-        JTextField four = new JTextField(5);
-        JTextField five = new JTextField(5);
-        JTextField six = new JTextField(5);
+        ArrayList<JTextField> inputs = new ArrayList<>();
 
-        numbersPanel.add(one);
-        numbersPanel.add(two);
-        numbersPanel.add(three);
-        numbersPanel.add(four);
-        numbersPanel.add(five);
-        numbersPanel.add(six);
+        for (int i = 0; i < 6; i++) {
+            inputs.add(new JTextField(5));
+            numbersPanel.add(inputs.get(i));
+        }
 
         JTextField target = new JTextField(10);
         fullPanel.add(new JLabel("Target:"), BorderLayout.NORTH);
@@ -70,12 +63,9 @@ public class GUI extends JFrame {
                 "Please Enter Target and Numbers", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
             ArrayList<Integer> numbers = new ArrayList<>();
-            numbers.add(Integer.parseInt(one.getText()));
-            numbers.add(Integer.parseInt(two.getText()));
-            numbers.add(Integer.parseInt(three.getText()));
-            numbers.add(Integer.parseInt(four.getText()));
-            numbers.add(Integer.parseInt(five.getText()));
-            numbers.add(Integer.parseInt(six.getText()));
+            for (JTextField input: inputs) {
+                numbers.add(Integer.parseInt(input.getText()));
+            }
 
             this.mathWorker.setNumbers(numbers, Integer.parseInt(target.getText()));
             this.mathWorker.run();
