@@ -1,1 +1,1 @@
-Small application for solving the questions on the British game show "Countdown", airing on Channel 4.
+Small application for solving the questions on the British game show "Countdown", airing on Channel 4. As of right now, it only solves for the maths round and I don't plan on adding the functionality to solve for the words round.
